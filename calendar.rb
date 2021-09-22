@@ -1,6 +1,7 @@
 require 'date'
+require_relative 'moon'
 
-class Date
+class MoonDate < Date
   DAY_NAME = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
   MONTH_NAME = ["January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"]
@@ -9,8 +10,8 @@ class Date
     month_days.filter { |day| day.cweek == self.cweek }
   end
 
-  def week
-    self.cweek - Date.new(self.year, self.month, 1) + 1
+  def current_week
+    self.cweek - Date.new(self.year, self.month, 1).cweek + 1
   end
 
   def day_name
@@ -23,10 +24,14 @@ class Date
 
   def month_days(padded=false)
     days = (0..31).filter { |day| Date.valid_date?(self.year, self.month, day) }.map do |day|
-      Date.new(self.year, self.month, day)
+      MoonDate.new(self.year, self.month, day)
     end
 
     padded ? pad_month_days(days) : days
+  end
+
+  def moon_phase
+    Moon.new(self).phase
   end
 
   private
