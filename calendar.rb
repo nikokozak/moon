@@ -1,47 +1,41 @@
 require 'date'
 
-TODAY = Date.today
-
-class Year
-  attr_reader :months
-  def initialize(year=TODAY.year)
-    @months = (0...12).map { |month| Month.new(year, month) }
-  end
-end
-
-class Month
+class Date
+  DAY_NAME = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
   MONTH_NAME = ["January", "February", "March", "April", "May", "June",
                 "July", "August", "September", "October", "November", "December"]
 
-  def initialize(year=TODAY.year, month=TODAY.month)
-    @name = MONTH_NAME[month - 1]
-    @days = init_days(year, month)
-    @year = year
-    @month = month
+  def week_days
+    month_days.filter { |day| day.cweek == self.cweek }
   end
 
-  def week(n=1)
-    this_week = Date.new(@year, @month, 1).cweek + (n - 1)
-    @days.filter do |day| 
-      day.date.cweek == this_week
+  def week
+    self.cweek - Date.new(self.year, self.month, 1) + 1
+  end
+
+  def day_name
+    DAY_NAME[self.cwday - 1]
+  end
+
+  def month_name
+    MONTH_NAME[self.month - 1]
+  end
+
+  def month_days(padded=false)
+    days = (0..31).filter { |day| Date.valid_date?(self.year, self.month, day) }.map do |day|
+      Date.new(self.year, self.month, day)
     end
+
+    padded ? pad_month_days(days) : days
   end
 
   private
 
-  def init_days(year, month)
-    (0..31).filter { |day| Date.valid_date?(year, month, day) }.map { |day| Day.new(year, month, day) }
-  end
-end
+  def pad_month_days(days)
+    front_padding = days.first.cwday - 1
+    end_padding = 7 - days.last.cwday 
 
-class Day
-  attr_reader :date
-
-  DAY_NAME = ["Mon", "Tues", "Wed", "Thurs", "Fri", "Sat", "Sun"]
-
-  def initialize(year=TODAY.year, month=TODAY.month, day=TODAY.day)
-    @date = Date.new(year, month, day)
-    @name = DAY_NAME[@date.cwday - 1]
+    Array.new(front_padding, nil) + days + Array.new(end_padding, nil)
   end
 end
 
