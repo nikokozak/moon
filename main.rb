@@ -1,12 +1,6 @@
 # encoding: utf-8
 
-require 'curses'
-
-include Curses
-
-init_screen
-start_color
-curs_set(0)
+require 'tty'
 
 MOONS = {
  new: "\u{1F311}",
@@ -19,10 +13,7 @@ MOONS = {
  waning_crescent: "\u{1F318}"
 }
 
-begin
-  MOONS.values.each { |moon| stdscr << moon }
-  getch
-ensure
-  close_screen
-end
+table = TTY::Table.new([[MOONS[:new], MOONS[:waxing_crescent], MOONS[:first_quarter]],
+                        [MOONS[:waxing_gibbous], MOONS[:full_moon], MOONS[:waning_gibbous]]])
 
+puts table.render(:basic, padding: [0, 2, 0, 2])
