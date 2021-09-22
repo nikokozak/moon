@@ -2,6 +2,8 @@
 
 require 'tty'
 
+TERM_HEIGHT, TERM_WIDTH = TTY::Screen.size
+
 MOONS = {
  new: "\u{1F311}",
  waxing_crescent: "\u{1F312}",
@@ -16,4 +18,10 @@ MOONS = {
 table = TTY::Table.new([[MOONS[:new], MOONS[:waxing_crescent], MOONS[:first_quarter]],
                         [MOONS[:waxing_gibbous], MOONS[:full_moon], MOONS[:waning_gibbous]]])
 
-puts table.render(:basic, padding: [0, 2, 0, 2])
+def center(rendered_table)
+  table_rows = rendered_table.split("\n")
+  padding = ((TERM_WIDTH - table_rows[1].length) / 2).floor
+  table_rows.map { |row| row.prepend(" " * padding) }.join("\n")
+end
+
+puts center(table.render(:basic, padding: [0, 2, 0, 2]))
