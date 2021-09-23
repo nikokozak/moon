@@ -1,5 +1,5 @@
 require 'date'
-require_relative 'moon'
+require_relative 'moon_calc'
 
 class MoonDate < Date
   DAY_NAME = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -32,7 +32,7 @@ class MoonDate < Date
   end
 
   def moon_phase
-    Moon.new(self).phase
+    MoonCalc.new(self).phase
   end
 
   private

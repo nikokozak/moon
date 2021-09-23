@@ -1,6 +1,6 @@
 require 'test/unit'
-require_relative 'moon_date'
-require_relative 'moon_term'
+require_relative '../lib/moon_date'
+require_relative '../lib/moon'
 
 class MoonDateTest < Test::Unit::TestCase
   def test_day_name

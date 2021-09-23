@@ -1,6 +1,7 @@
+#!/usr/bin/env ruby
 # encoding: utf-8
 
-require_relative 'moon_term'
+require 'moon'
 
 ### PARSE ARGS ###
 

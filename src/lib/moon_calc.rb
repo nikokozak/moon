@@ -1,9 +1,8 @@
-#
 # Lunar/Moon phases ruby class
 #
 # Code is based upon Bradley E. Schaefer''s moon phase algorithm.
 # Ruby version based on JavaScript Phase Calculator by Stephen R. Schmitt
-class Moon
+class MoonCalc
   attr_reader :epoch, :phase, :days, :icon, :dist, :ll
 
   # Return the current (or input a date) moon.

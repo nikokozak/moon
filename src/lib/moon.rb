@@ -1,4 +1,4 @@
-require 'tty'
+require 'tty-table'
 require 'pastel'
 require_relative 'moon_date'
 
@@ -57,7 +57,7 @@ class MoonTerm
     end
     table << @date.week_days(true).map { |day| day.nil? ? day : MOONS[day.moon_phase][0] }
 
-    title + center_table(table.render(multiline: true, alignment: [:center], padding: [0, 2, 0, 2]))
+    title + center_table(table.render(multiline: true, alignment: [:center], padding: [0, 2, 0, 2])) + "\n"
   end
 
   def moon_month
@@ -70,7 +70,7 @@ class MoonTerm
     weeks.each { |week| table << week }
 
     "\n" + center_string($pastel.bold("Moon Phases for #{@date.strftime("%B %Y")}")) + "\n\n" +
-    center_table(table.render(multiline: true, alignment: [:center], padding:[0, 1, 0, 1]))
+    center_table(table.render(multiline: true, alignment: [:center], padding:[0, 1, 0, 1])) + "\n"
   end
 
   def help_text
