@@ -8,5 +8,5 @@ fi
 
 mkdir -p dist/moon
 cp -r src/* dist/moon
-tar -czvf dist/moon.tar.gz dist/moon
+tar -czvf dist/0.0.1.tar.gz dist/moon
 rm -rf dist/moon
