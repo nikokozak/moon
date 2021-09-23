@@ -43,7 +43,6 @@ class MoonTerm
     moon_icon = center_string(MOONS[@date.moon_phase][0]) + "\n"
 
     header_string + phase_string + moon_icon
-    puts ""
   end
 
   def moon_week
@@ -59,7 +58,6 @@ class MoonTerm
     table << @date.week_days(true).map { |day| day.nil? ? day : MOONS[day.moon_phase][0] }
 
     title + center_table(table.render(multiline: true, alignment: [:center], padding: [0, 2, 0, 2]))
-    puts ""
   end
 
   def moon_month
@@ -73,7 +71,6 @@ class MoonTerm
 
     "\n" + center_string($pastel.bold("Moon Phases for #{@date.strftime("%B %Y")}")) + "\n\n" +
     center_table(table.render(multiline: true, alignment: [:center], padding:[0, 1, 0, 1]))
-    puts ""
   end
 
   def help_text

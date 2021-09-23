@@ -10,15 +10,21 @@ arg, *other_args = ARGV
 case arg
 when "today"
   puts MoonTerm.new.moon_day
+  puts ""
 when "week"
   puts MoonTerm.new.moon_week
+  puts ""
 when "month"
   puts MoonTerm.new.moon_month
+  puts ""
 when "-h"
   puts MoonTerm.new.help_text
+  puts ""
 when "help"
   puts MoonTerm.new.help_text
+  puts ""
 else
   puts MoonTerm.new.moon_month
+  puts ""
 end
 
