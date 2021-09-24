@@ -1,4 +1,4 @@
-# MOON
+# 🌚 MOON 🌝
 
 A naive lil' terminal moon-phase calendar built with Ruby and TTY as an exercise in learning how to create Gems, and distribute releases via Homebrew.
 
@@ -26,7 +26,7 @@ or
 moon month
 ```
 
-![Monthly Moon Calendar](".imgs/moon_month.png")
+![Monthly Moon Calendar](.imgs/moon_month.png)
 
 ### Display a weekly calendar:
 
@@ -34,7 +34,7 @@ moon month
 moon week
 ```
 
-![Weekly Moon Calendar](".imgs/moon_week.png")
+![Weekly Moon Calendar](.imgs/moon_week.png)
 
 ### Display a daily calendar:
 
@@ -42,17 +42,19 @@ moon week
 moon day
 ```
 
-![Daily Moon Calendar](".imgs/moon_day.png")
+![Daily Moon Calendar](.imgs/moon_day.png)
 
 ### Uninstall
 
 Depending on the installation method:
 
+With homebrew:
 ```bash
 brew uninstall moon
 brew clean
 ```
 
+Gems:
 ```bash
 gem uninstall mooncal
 ```
