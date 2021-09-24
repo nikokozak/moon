@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'mooncal'
-  s.version = '0.0.1'
+  s.version = '0.0.2'
   s.summary = "Moon Phases!"
   s.description = "Print a moon phase calendar to your terminal!"
   s.authors = ["Nikolai Kozak"]
