@@ -1,14 +1,8 @@
 # 🌚 MOON 🌝
 
-A naive lil' terminal moon-phase calendar built with Ruby and TTY as an exercise in learning how to create Gems, and distribute releases via Homebrew.
+A naive lil' terminal moon-phase calendar built with Ruby and TTY as an exercise in learning how to create and distribute Gems.
 
 ## Installation
-
-```bash
-brew install nikokozak/formulas/moon
-```
-
-Or
 
 ```bash
 gem install mooncal
