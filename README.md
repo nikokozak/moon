@@ -30,23 +30,7 @@ moon week
 
 ![Weekly Moon Calendar](.imgs/moon_week.png)
 
-### Display a daily calendar:
-
-```bash
-moon day
-```
-
-![Daily Moon Calendar](.imgs/moon_day.png)
-
 ### Uninstall
-
-Depending on the installation method:
-
-With homebrew:
-```bash
-brew uninstall moon
-brew clean
-```
 
 Gems:
 ```bash
